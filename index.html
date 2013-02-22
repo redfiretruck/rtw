@@ -25,13 +25,23 @@
 html {overflow: auto;} 
 html, body, div, iframe {margin: 0px; padding: 0px; height: 100%; border: none;} 
 iframe {display: block; width: 100%; border: none; overflow-y: auto; overflow-x: hidden;} 
+#loadingMessage {
+	width: 100%;
+	height: 100%;
+	z-index: 1000;
+	background: #ccc;
+	top: 0px;
+	left; 0px;
+	position: absolute;
+}
 </style> 
 </head>
 
 <body>
 
-
-	<iframe src="http://www.spygraph.org/game/" frameborder="0" marginheight="0" marginwidth="0" width="100%" height="100%" scrolling="auto"></iframe>
+<iframe src="http://www.google.com/" id="foo"></iframe>
+<div id="loadingMessage">Loading...</div>
+	<!--<iframe src="http://www.spygraph.org/game/" frameborder="0" marginheight="0" marginwidth="0" width="100%" height="100%" scrolling="auto"></iframe>-->
 
   <!-- jQuery -->
   <script src="js/libs/jquery-1.7.1.min.js"></script>
@@ -47,6 +57,15 @@ iframe {display: block; width: 100%; border: none; overflow-y: auto; overflow-x:
   
   <!-- Debugger - remove for production -->
   <!-- <script src="https://getfirebug.com/firebug-lite.js"></script> -->
+  
+<script type="text/javascript">
+$('#foo').ready(function () {
+	$('#loadingMessage').css('display', 'none');
+});
+$('#foo').load(function () {
+	$('#loadingMessage').css('display', 'none');
+});
+</script>
 
 </body>
 </html>
